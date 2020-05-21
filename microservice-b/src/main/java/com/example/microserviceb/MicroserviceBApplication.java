@@ -46,6 +46,7 @@ public class MicroserviceBApplication {
 				discoveryClient, environment);
 		HealthCheckServiceInstanceListSupplier delegate = new HealthCheckServiceInstanceListSupplier(firstDelegate,
 				loadBalancerProperties.getHealthCheck(), webClientBuilder.build());
+		delegate.afterPropertiesSet();
 		ObjectProvider<LoadBalancerCacheManager> cacheManagerProvider = context
 				.getBeanProvider(LoadBalancerCacheManager.class);
 		if (cacheManagerProvider.getIfAvailable() != null) {
