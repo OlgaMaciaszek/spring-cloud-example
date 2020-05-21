@@ -7,8 +7,12 @@ spring:
     instance-id: ${spring.application.name}-01
   cloud:
     loadbalancer:
-      health-check:
-        interval: 60s
+      healthcheck:
+        interval: 5s
+        path:
+          default: /test
+      cache:
+        enabled: false
 
 loadbalancer:
   client:
